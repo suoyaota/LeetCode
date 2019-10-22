@@ -1,0 +1,38 @@
+/**
+ * @author William Wang
+ * @date 2019/10/22 23:55
+ */
+public class P75 {
+    class Solution {
+        /**
+         *@Date 2019/10/22 23:56
+         *@Author William Wang
+         *@Desicription Runtime: 100% ; Memory Usage:99.21%
+         */
+        public void sortColors(int[] nums) {
+            int pos0 = 0;
+            int pos2 = nums.length - 1;
+            int temp = 0;
+            for (int i = nums.length - 1; i >= 0; i--) {
+                if (nums[i] != 2) {
+                    pos2 = i;
+                    break;
+                }
+            }
+            for (int i = 0; i < pos2 + 1; i++) {
+                if (nums[i] == 0) {
+                    temp = nums[pos0];
+                    nums[pos0] = nums[i];
+                    nums[i] = temp;
+                    pos0++;
+                } else if (nums[i] == 2) {
+                    temp = nums[pos2];
+                    nums[pos2] = nums[i];
+                    nums[i] = temp;
+                    pos2--;
+                    i--;
+                }
+            }
+        }
+    }
+}
