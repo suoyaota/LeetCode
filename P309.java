@@ -1,9 +1,12 @@
+import java.util.Date;
+
 /**
  * @author William Wang
  * @date 2019/10/15 23:42
  */
 public class P309 {
     class Solution {
+
         /**
          *@Date 2019/10/15 23:43
          *@Author William Wang
@@ -16,6 +19,7 @@ public class P309 {
             if(prices == null || prices.length <= 1) {
                 return 0;
             }
+
             int b0 = -prices[0], b1 = b0;
             int s0 = 0, s1 = 0, s2 = 0;
 
