@@ -35,33 +35,13 @@ public class P160 {
 
     class Solution1 {
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-            if(headA == null || headB == null) return null;
-            else{
-                ListNode startA = headA;
-                ListNode startB = headB;
-                int end = 0;
-                while(end != 2){
-                    if(startA == startB) {
-                        return startA;
-                    }
-                    else{
-                        if(startA.next == null) {
-                            startA = headB;
-                            end++;
-                        }
-                        else {
-                            startA = startA.next;
-                        }
-                        if(startB.next == null) {
-                            startB = headA;
-                        }
-                        else {
-                            startB = startB.next;
-                        }
-                    }
-                }
-                return null;
+            ListNode lA = headA;
+            ListNode lB = headB;
+            while (lA != lB) {
+                lA = (lA.next == null) ? headB : lA.next;
+                lB = (lB.next == null) ? headA : lB.next;
             }
+            return lA;
         }
     }
 

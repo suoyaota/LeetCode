@@ -29,4 +29,26 @@ public class P83 {
             return head;
         }
     }
+
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
+    class Solution2 {
+        //递归 终止条件  返回次层级理想结果  本层级如何连接次层级
+        public ListNode deleteDuplicates(ListNode head) {
+            if (head == null || head.next == null) {
+                return head;
+            }
+            ListNode temp = deleteDuplicates(head.next);
+            if (temp.val == head.val) {
+                head.next = temp.next;
+            }
+            return head;
+        }
+    }
 }

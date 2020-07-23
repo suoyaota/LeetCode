@@ -11,7 +11,8 @@ public class P234 {
      *     ListNode(int x) { val = x; }
      * }
      */
-    class Solution {
+    class Solution1 {
+        //边走边翻转链表
         public boolean isPalindrome(ListNode head) {
             if(head == null) return true;
             if(head.next == null) return true;
@@ -40,6 +41,52 @@ public class P234 {
                 start = start.next;
             }
             return true;
+        }
+    }
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
+    class Solution2 {
+        public boolean isPalindrome(ListNode head) {
+            if (head == null || head.next == null) {
+                return true;
+            }
+            ListNode fast = head;
+            ListNode slow = head;
+            while(fast.next != null && fast.next.next != null) {
+                fast = fast.next.next;
+                slow = slow.next;
+            }
+            if (fast.next != null) {
+                slow = slow.next;
+            }
+            ListNode toCmp = reverseList(slow);
+            while(toCmp != null) {
+                if (head.val != toCmp.val) {
+                    return false;
+                }
+                toCmp = toCmp.next;
+                head = head.next;
+            }
+            return true;
+        }
+        private ListNode reverseList(ListNode head) {
+            if (head == null || head.next == null) {
+                return head;
+            }
+            ListNode newHead = new ListNode(-1);
+            while (head != null) {
+                ListNode next = head.next;
+                head.next = newHead.next;
+                newHead.next = head;
+                head = next;
+            }
+            return newHead.next;
         }
     }
 
