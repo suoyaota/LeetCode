@@ -1,10 +1,10 @@
 import javax.swing.tree.TreeNode;
 
 /**
- * @Date 2019/10/9 18:22
- * @Author William Wang
+ * @author wyb
+ * @date 2020/7/26
  */
-public class P112 {
+public class P226 {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -21,15 +21,16 @@ public class P112 {
      * }
      */
     class Solution {
-        public boolean hasPathSum(TreeNode root, int sum) {
+        public TreeNode invertTree(TreeNode root) {
             if (root == null) {
-                return false;
+                return root;
             }
-            if (root.left == null && root.right == null && root.val == sum) {
-                return true;
-            }
-            return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+            root.left = invertTree(root.left);
+            root.right = invertTree(root.right);
+            TreeNode temp = root.left;
+            root.left = root.right;
+            root.right = temp;
+            return root;
         }
     }
-
 }

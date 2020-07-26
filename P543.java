@@ -1,10 +1,10 @@
 import javax.swing.tree.TreeNode;
 
 /**
- * @Date 2019/10/9 18:22
- * @Author William Wang
+ * @author wyb
+ * @date 2020/7/26
  */
-public class P112 {
+public class P543 {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -21,15 +21,20 @@ public class P112 {
      * }
      */
     class Solution {
-        public boolean hasPathSum(TreeNode root, int sum) {
+        int ans = 0;
+        public int diameterOfBinaryTree(TreeNode root) {
+            int temp = getDepth(root);
+            return ans;
+        }
+        private int getDepth(TreeNode root) {
             if (root == null) {
-                return false;
+                return 0;
             }
-            if (root.left == null && root.right == null && root.val == sum) {
-                return true;
-            }
-            return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+            int ldepth = getDepth(root.left);
+            int rdepth = getDepth(root.right);
+            int tempans = ldepth + rdepth;
+            ans = ans > tempans ? ans : tempans;
+            return Math.max(ldepth, rdepth) + 1;
         }
     }
-
 }
