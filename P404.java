@@ -1,10 +1,10 @@
 import javax.swing.tree.TreeNode;
 
 /**
- * @Date 2019/10/9 18:21
- * @Author William Wang
+ * @author wyb
+ * @date 2020/7/29
  */
-public class P111 {
+public class P404 {
     /**
      * Definition for a binary tree node.
      * public class TreeNode {
@@ -21,15 +21,23 @@ public class P111 {
      * }
      */
     class Solution {
-        public int minDepth(TreeNode root) {
+        public int sumOfLeftLeaves(TreeNode root) {
             if (root == null) {
                 return 0;
             }
-            int l = minDepth(root.left);
-            int r = minDepth(root.right);
-            if (l == 0 || r == 0) return l + r + 1;
-            return Math.min(l,r) + 1;
+            if (isLeaf(root.left)) {
+                return root.left.val + sumOfLeftLeaves(root.right);
+            }
+            return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+        }
+        private boolean isLeaf(TreeNode root) {
+            if (root == null) {
+                return false;
+            }
+            if (root.left == null && root.right == null) {
+                return true;
+            }
+            return false;
         }
     }
-
 }
