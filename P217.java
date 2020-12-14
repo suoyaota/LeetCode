@@ -52,4 +52,18 @@ class Solution1 {
             return false;
         }
     }
+
+    class Solution3 {
+
+        public boolean containsDuplicate(int[] nums) {
+            if (nums.length == 0 || nums.length == 1) {
+                return false;
+            }
+            Set<Integer> set = new HashSet<>(nums.length);
+            for (int n: nums) {
+                set.add(n);
+            }
+            return nums.length > set.size();
+        }
+    }
 }
