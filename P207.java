@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @author wyb
@@ -45,6 +47,42 @@ public class P207 {
             }
             visited[course] = 2;
             return false;
+        }
+    }
+
+    class Solution2 {
+        //广度优先搜索，存储每个节点入了哪些节点，以及每个节点的入度
+        List<List<Integer>> graphic;
+        int[] indegree;
+        public boolean canFinish(int numCourses, int[][] prerequisites) {
+            graphic = new ArrayList<List<Integer>>(numCourses);
+            indegree = new int[numCourses];//入度数组
+            int visited = 0;
+            for(int i = 0; i < numCourses; i++) {
+                graphic.add(new ArrayList<Integer>());
+            }
+
+            for (int[] pre : prerequisites) {
+                graphic.get(pre[1]).add(pre[0]);
+                indegree[pre[0]]++;
+            }
+            Queue<Integer> queue = new LinkedList<Integer>();
+            for (int i = 0; i < numCourses; i++) {
+                if (indegree[i] == 0) {
+                    queue.offer(i);
+                }
+            }
+            while(!queue.isEmpty()) {
+                int i = queue.poll();
+                visited++;
+                for (int course: graphic.get(i)) {
+                    indegree[course]--;
+                    if (indegree[course] == 0) {
+                        queue.offer(course);
+                    }
+                }
+            }
+            return visited == numCourses;
         }
     }
 }

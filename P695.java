@@ -29,4 +29,34 @@ public class P695 {
         }
     }
 
+    class Solution2 {
+        //换种写法
+        private static int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        public int maxAreaOfIsland(int[][] grid) {
+            if (grid == null || grid.length == 0 || grid[0].length == 0) {
+                return 0;
+            }
+            int ans = 0;
+            int m = grid.length;
+            int n = grid[0].length;
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    ans = Math.max(ans, dfs(grid, i, j));
+                }
+            }
+            return ans;
+        }
+        private int dfs(int[][] grid, int row, int col) {
+            if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || grid[row][col] == 0) {
+                return 0;
+            }
+            int area = 1;
+            grid[row][col] = 0;
+            for (int[] d : directions) {
+                area += dfs(grid, row + d[0], col + d[1]);
+            }
+            return area;
+        }
+    }
+
 }

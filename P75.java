@@ -35,4 +35,30 @@ public class P75 {
             }
         }
     }
+
+    class Solution2 {
+        //三向切分方法
+        //注意if和 else if 效果是不同的！
+        public void sortColors(int[] nums) {
+            int start1 = 0;
+            int end1 = nums.length - 1;
+            for (int i = 0; i <= end1;) {
+                if (nums[i] == 0) {
+                    swap(nums, i, start1);
+                    start1++;
+                    i++;
+                } else if (nums[i] == 2) {
+                    swap(nums, i, end1);
+                    end1--;
+                } else if (nums[i] == 1) {
+                    i++;
+                }
+            }
+        }
+        private void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
 }

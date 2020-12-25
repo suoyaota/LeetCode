@@ -16,7 +16,6 @@ public class P287 {
          *             阶段二：所以再找一个人从起点与乌龟同速走r步后，人和乌龟在环入口相遇，返回环入口
          */
         public int findDuplicate(int[] nums) {
-。
             int tortoise = nums[0];
             int hare = nums[0];
             do {

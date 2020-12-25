@@ -9,6 +9,8 @@ public class P680 {
      * @description
      */
     class Solution {
+        //不能出现错误就跳过错误的字母后继续判断，因为当min、max所在字母都可以被跳过时就无法选择了
+        //所以必须写出判断回文的函数，然后尝试跳过某个字母；
         public boolean validPalindrome(String s) {
             int i = 0;
             int j = s.length() - 1;
