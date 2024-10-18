@@ -1,13 +1,13 @@
 package practice.solution;
 
 /**
- * @author William Wang
- * @date 2020/3/26 7:59
+ * @Author William Wang
+ * @Date 2020/3/26 7:59
  */
 public class P693 {
     /**
-     * @date 2020/3/26 7:59
-     * @author William Wang
+     * @Date 2020/3/26 7:59
+     * @Author William Wang
      * @description 如果是交替数，则a为全1的二进制数
      */
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P501 {
     /**

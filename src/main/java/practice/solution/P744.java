@@ -1,7 +1,7 @@
 package practice.solution;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P744 {
 

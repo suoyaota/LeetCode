@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 /**
- * @author William Wang
- * @date 2019/10/18 14:48
+ * @Author William Wang
+ * @Date 2019/10/18 14:48
  */
 @Component
 public class P164 {

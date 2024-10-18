@@ -1,8 +1,8 @@
 package practice.solution;
 
 /**
- * @author William Wang
- * @date 2019/10/20 23:52
+ * @Author William Wang
+ * @Date 2019/10/20 23:52
  */
 public class P4 {
 

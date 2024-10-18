@@ -2,13 +2,13 @@ package practice.solution;
 
 
 /**
- * @author William Wang
- * @date 2020/2/24 14:12
+ * @Author William Wang
+ * @Date 2020/2/24 14:12
  */
 public class p461 {
     /**
-     * @date 2020/2/24 14:12
-     * @author William Wang
+     * @Date 2020/2/24 14:12
+     * @Author William Wang
      * @description 位运算
      */
 

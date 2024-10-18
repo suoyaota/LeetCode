@@ -3,7 +3,7 @@ package practice.solution;
 import java.util.List;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P524 {
 

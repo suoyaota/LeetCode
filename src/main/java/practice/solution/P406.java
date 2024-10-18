@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P406 {
 

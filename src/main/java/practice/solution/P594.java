@@ -3,7 +3,7 @@ package practice.solution;
 import java.util.HashMap;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P594 {
 

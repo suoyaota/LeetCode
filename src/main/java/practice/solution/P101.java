@@ -3,8 +3,8 @@ package practice.solution;
 import org.springframework.stereotype.Component;
 
 /**
- * @author wyb
- * @date 2020/7/28
+ * @Author William Wang
+ * @Date 2020/7/28
  */
 @Component
 public class P101 {

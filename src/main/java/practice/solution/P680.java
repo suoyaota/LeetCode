@@ -1,13 +1,13 @@
 package practice.solution;
 
 /**
- * @author William Wang
- * @date 2019/11/27 21:28
+ * @Author William Wang
+ * @Date 2019/11/27 21:28
  */
 public class P680 {
     /**
-     * @author William Wang
-     * @date 2019/11/27 21:28
+     * @Author William Wang
+     * @Date 2019/11/27 21:28
      * @description
      */
 

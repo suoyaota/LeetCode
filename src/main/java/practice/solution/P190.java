@@ -3,14 +3,14 @@ package practice.solution;
 import org.springframework.stereotype.Component;
 
 /**
- * @author William Wang
- * @date 2020/2/25 9:46
+ * @Author William Wang
+ * @Date 2020/2/25 9:46
  */
 @Component
 public class P190 {
     /**
-     * @date 2020/2/25 9:46
-     * @author William Wang
+     * @Date 2020/2/25 9:46
+     * @Author William Wang
      * @description
      */
     // you need treat n as an unsigned value

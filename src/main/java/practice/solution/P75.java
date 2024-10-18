@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author William Wang
- * @date 2019/10/22 23:55
+ * @Author William Wang
+ * @Date 2019/10/22 23:55
  */
 @Component
 public class P75 {

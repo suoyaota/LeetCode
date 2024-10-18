@@ -3,7 +3,7 @@ package practice.solution;
 import java.util.Arrays;
 
 /**
- * @author wyb
+ * @Author William Wang
  */
 public class P785 {
 
