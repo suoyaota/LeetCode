@@ -42,4 +42,20 @@ public class P283 {
             nums[idx++] = 0;
         }
     }
+
+    public void moveZeroes3(int[] nums) {
+        int zeroIndex = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                if (zeroIndex == -1) {
+                    zeroIndex = i;
+                }
+                continue;
+            } else if (zeroIndex != -1) {
+                nums[zeroIndex] = nums[i];
+                zeroIndex++;
+                nums[i] = 0;
+            }
+        }
+    }
 }

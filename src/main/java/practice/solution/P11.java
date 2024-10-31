@@ -30,5 +30,22 @@ public class P11 {
         }
         return ans;
     }
+
+    public int maxArea2(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int ans = 0;
+        while(left < right) {
+            int h = Math.min(height[right], height[left]);
+            int temp = h * (right - left);
+            ans = Math.max(ans, temp);
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return ans;
+    }
 }
 
