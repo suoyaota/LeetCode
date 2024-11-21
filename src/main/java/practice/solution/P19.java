@@ -39,5 +39,19 @@ public class P19 {
         slow.next = slow.next.next;
         return head;
     }
+
+    int num = -1;
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
+        if (head == null) {
+            num++;
+            return head;
+        }
+        head.next = removeNthFromEnd(head.next, n);
+        num++;
+        if (num == n) {
+            return head.next;
+        }
+        return head;
+    }
 }
 

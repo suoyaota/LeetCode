@@ -37,5 +37,16 @@ public class P24 {
         }
         return ans;
     }
+
+    public ListNode swapPairs2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode temp = head.next.next;
+        ListNode ans = head.next;
+        head.next.next = head;
+        head.next = swapPairs(temp);
+        return ans;
+    }
 }
 

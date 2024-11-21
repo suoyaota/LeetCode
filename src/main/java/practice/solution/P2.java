@@ -54,5 +54,46 @@ public class P2 {
         }
         return ans.next;
     }
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        int num1 = list2num(l1);
+        int num2 = list2num(l2);
+        int num = num1 + num2;
+        return num2list(num);
+    }
+
+    public int list2num(ListNode l1) {
+        if (l1 == null) {
+            return 0;
+        }
+        int pow = 1;
+        int num = 0;
+        while (l1 != null) {
+            num += l1.val * pow;
+            pow = pow * 10;
+            l1 = l1.next;
+        }
+        return num;
+    }
+
+    public ListNode num2list(int num) {
+        if (num <= 9) {
+            return new ListNode(num);
+        }
+        ListNode head = new ListNode(-1);
+        ListNode cur = head;
+        while (num != 0) {
+            int temp = num - num / 10 * 10;
+            cur.next = new ListNode(temp);
+            num = num / 10;
+            cur = cur.next;
+        }
+        return head.next;
+    }
 
 }
