@@ -2,18 +2,28 @@ package practice.solution;
 
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Arrays;
+import practice.solution.P0.P25;
+import practice.solution.P0.P51;
+import practice.solution.P100.P146;
+import practice.solution.P300.P394;
+import practice.solution.common.LRUCache;
+import practice.solution.common.ListNode;
 
 @SpringBootTest
 class LeetCodeApplicationTests {
 
-    @Autowired
-    P2 p2;
     @Resource
-    P42 p42;
+    P25 p25;
+    @Resource
+    P146 p146;
+    @Resource
+    P994 p994;
+    @Resource
+    P51 p51;
+    @Resource
+    P394 p394;
+
 
     @Test
     void contextLoads() {
@@ -24,10 +34,46 @@ class LeetCodeApplicationTests {
 
     }
     @Test
-    void testP42() {
-        int[] in = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
-        int ans = p42.trap(in);
-        System.out.println("ans = " + ans);
+    void testP25() {
+        ListNode p1 = new ListNode(1);
+        ListNode p2 = new ListNode(2);
+        ListNode p3 = new ListNode(3);
+        ListNode p4 = new ListNode(4);
+        ListNode p5 = new ListNode(5);
+        p1.next = p2;
+        p2.next = p3;
+        p3.next = p4;
+        p4.next = p5;
+        p25.reverseKGroup(p1, 2);
+    }
+
+    @Test
+    void test146() {
+        LRUCache lruCache = new LRUCache(2);
+        lruCache.put(1, 1);
+        lruCache.put(2, 2);
+        int value1 = lruCache.get(1);
+        lruCache.put(3, 3);
+        int value2 = lruCache.get(2);
+    }
+    @Test
+    void test994() {
+        int[][] testIn = new int[][]{
+                {2, 1, 1},
+                {1, 1, 0},
+                {0, 1, 1}
+        };
+        int ans = p994.orangesRotting(testIn);
+    }
+
+    @Test
+    void testP51() {
+        p51.solveNQueens(4);
+    }
+
+    @Test
+    void testP394() {
+        p394.decodeString("3[a]2[bc]");
     }
 
 }
