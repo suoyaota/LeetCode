@@ -3,6 +3,8 @@ package practice.solution.P700;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * @Author WilliamWang
@@ -36,6 +38,22 @@ public class P738 {
                 ans[i] = minWormerIdx - i;
             }
             idxOfT[t] = i;
+        }
+        return ans;
+    }
+
+    // 单调栈
+    public int[] dailyTemperatures(int[] temperatures) {
+        int len = temperatures.length;
+        int[] ans = new int[len];
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < len; i++) {
+            int nowT = temperatures[i];
+            while (!stack.isEmpty() && nowT > temperatures[stack.peek()]) {
+                int topTidx = stack.pop();
+                ans[topTidx] = i - topTidx;
+            }
+            stack.push(i);
         }
         return ans;
     }
