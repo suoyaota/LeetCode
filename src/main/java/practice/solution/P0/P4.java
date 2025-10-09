@@ -62,5 +62,39 @@ public class P4 {
         }
         return ans;
     }
+
+    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int tarNum = (m + n) / 2 + 1;
+        int f = -1;
+        int s = -1;
+        int i = 0;
+        int j = 0;
+        for (int num = 0; num < tarNum; num++) {
+            int next = 0;
+            if (i == m) {
+                j++;
+                next = nums2[j - 1];
+            } else if (j == n) {
+                i++;
+                next = nums1[i - 1];
+            } else if (nums1[i] < nums2[j]) {
+                i++;
+                next = nums1[i - 1];
+            } else {
+                j++;
+                next = nums2[j - 1];
+            }
+            s = f;
+            f = next;
+        }
+        if (m + n - tarNum * 2 == -1) {
+            return f;
+        } else {
+            return (double) (f + s) / 2;
+        }
+
+    }
 }
 

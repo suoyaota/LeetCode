@@ -6,7 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import practice.solution.P0.P25;
 import practice.solution.P0.P51;
 import practice.solution.P100.P146;
+import practice.solution.P200.P215;
 import practice.solution.P300.P394;
+import practice.solution.P900.P994;
 import practice.solution.common.LRUCache;
 import practice.solution.common.ListNode;
 
@@ -23,6 +25,8 @@ class LeetCodeApplicationTests {
     P51 p51;
     @Resource
     P394 p394;
+    @Resource
+    P215 p215;
 
 
     @Test
@@ -74,6 +78,12 @@ class LeetCodeApplicationTests {
     @Test
     void testP394() {
         p394.decodeString("3[a]2[bc]");
+    }
+
+    @Test
+    void testP215() {
+        int[] nums = new int[] {3,2,3,1,2,4,5,5,6};
+        p215.findKthLargest4(nums, 4);
     }
 
 }

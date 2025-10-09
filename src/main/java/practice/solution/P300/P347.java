@@ -2,10 +2,7 @@ package practice.solution.P300;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author William Wang
@@ -50,6 +47,28 @@ public class P347 {
         int[] ans = new int[k];
         for (int i = 0; i < k; i++) {
             ans[i] = topK.get(i);
+        }
+        return ans;
+    }
+
+    // 堆排序
+    public int[] topKFrequent2(int[] nums, int k) {
+        Map<Integer, Integer> num2FrenquencyMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            num2FrenquencyMap.put(nums[i], num2FrenquencyMap.getOrDefault(nums[i], 0) + 1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        for (Map.Entry<Integer, Integer> entry : num2FrenquencyMap.entrySet()) {
+            int[] pair = new int[] {entry.getKey(), entry.getValue()};
+            pq.offer(pair);
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+        int[] ans = new int[k];
+        for (int i = 0; i < k; i++) {
+            int[] pair = pq.poll();
+            ans[i] = pair[0];
         }
         return ans;
     }

@@ -29,7 +29,20 @@ public class P55 {
             }
         }
         return target == 0;
+    }
 
+    public boolean canJump2(int[] nums) {
+        int len = nums.length;
+        int limit = 0;
+        int idx = 0;
+        while (idx <= limit && idx < len) {
+            limit = Math.max(idx + nums[idx], limit);
+            if (limit >= len - 1) {
+                return true;
+            }
+            idx++;
+        }
+        return false;
     }
 }
 

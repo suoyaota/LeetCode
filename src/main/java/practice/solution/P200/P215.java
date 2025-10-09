@@ -3,6 +3,7 @@ package practice.solution.P200;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 
@@ -20,7 +21,7 @@ public class P215 {
 
     //堆
     public int findKthLargest2(int[] nums, int k) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
             pq.add(num);
             if (pq.size() > k) {
@@ -74,6 +75,46 @@ public class P215 {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
+    /**
+     * 数组建堆
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int findKthLargest4(int[] nums, int k) {
+        for (int i = nums.length / 2 - 1; i >= 0; i--) {
+            buildMaxHeap(nums, i, nums.length);
+        }
+        int heapSize = nums.length;
+        // 做k-1次删除操作
+        for (int j = 1; j < k; j++) {
+            swap(nums, 0, heapSize - 1);
+            heapSize--;
+            buildMaxHeap(nums, 0, heapSize);
+        }
+        return nums[0];
+    }
+
+    private void buildMaxHeap(int[] nums, int midIdx, int heapSize) {
+        int l = midIdx * 2 + 1;
+        int r = midIdx * 2 + 2;
+        int largest = midIdx;
+        if (l < heapSize && nums[l] > nums[largest]) {
+            largest = l;
+        }
+        if (r < heapSize && nums[r] > nums[largest]) {
+            largest = r;
+        }
+        if (largest != midIdx) {
+            // 交换，并调整交换后的子树
+            swap(nums, largest, midIdx);
+            buildMaxHeap(nums, largest, heapSize);
+        }
+    }
+
+
+
 
 
 }

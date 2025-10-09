@@ -1,4 +1,4 @@
-package practice.solution;
+package practice.solution.P900;
 
 import org.springframework.stereotype.Component;
 

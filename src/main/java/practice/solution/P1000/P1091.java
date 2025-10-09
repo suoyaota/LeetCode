@@ -1,4 +1,4 @@
-package practice.solution;
+package practice.solution.P1000;
 
 import java.util.LinkedList;
 import java.util.Queue;
